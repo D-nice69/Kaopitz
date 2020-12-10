@@ -2,30 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PhotoController extends Controller
 {
-    public function admin()
-    {
-        return view('post.admin');
-    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('post.index');
+        //
     }
-    public function post()
-    {
-        $posts = Post::paginate(10);
-        return view('post.post',compact('posts'));
-    }
-    public function search(Request $request)
-    {
-        $key_words = $request->key_words;
-        $posts = Post::where('title','LIKE','%'.$key_words.'%')->paginate(10);
-        return view('post.post',compact('posts'));
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -66,8 +56,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::where('id',$id)->first();
-        return view('post.edit',compact('post'));
+        //
     }
 
     /**
@@ -79,11 +68,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Post::find($id)->update([
-            'title' => $request->title,
-            'content' => $request->content,
-        ]);
-        return redirect()->route('post.post');
+        //
     }
 
     /**
@@ -94,7 +79,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
-        return redirect()->back();
+        //
     }
 }

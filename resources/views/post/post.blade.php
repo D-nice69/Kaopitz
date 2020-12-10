@@ -9,6 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,6 +34,7 @@
                 <tr>
                     <th>Tiêu đề</th>
                     <th>Nội dung</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +42,14 @@
                 <tr>
                     <td>{{$post->title}}</td>
                     <td>{{$post->content}}</td>
+                    <td>
+                        <a href="{{ route('post.edit',['id'=>$post->id]) }}">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a href="{{ route('post.destroy',['id'=>$post->id]) }}">
+                            <i class="far fa-trash-alt" style="color: red"></i>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -34,5 +34,8 @@ Route::get('/login', [HomeController::class, 'login'])->name('home.login');
 //BTVN
 Route::get('/post',[PostController::class,'post'])->name('post.post');
 Route::post('/post/search',[PostController::class,'search'])->name('post.search');
+Route::get('/post/edit/{id}',[PostController::class,'edit'])->name('post.edit');
+Route::patch('/post/update/{id}',[PostController::class,'update'])->name('post.update');
+Route::get('/post/delete/{id}',[PostController::class,'destroy'])->name('post.destroy');
 
 
